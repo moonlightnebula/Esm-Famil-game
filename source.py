@@ -2,13 +2,13 @@ import csv
 
 all_data = {}
 headers = ['esm' , 'famil' , 'keshvar' , 'rang' , 'ashia' , 'ghaza']
-for head in headers :
-    all_data[head] = []
+for i in headers :
+    all_data[i] = []
 
 data_participants = []
 
 def remove_space(word):
-    return (word.replace(' ', ''))
+    return word.replace(' ', '')
 
 def ready_up():
     with open ('esm_famil_data.csv' , newline='' , encoding='utf-8') as csv_file:
@@ -26,7 +26,6 @@ def add_participant(participant, answers):
     participants_dict = {participant : answers}
     data_participants.append(participants_dict)
     return data_participants
-    # print(data_participants)
 
 def calculate_all():
     scores = {}
@@ -59,16 +58,16 @@ def calculate_all():
                         score = 15
                 scores[people] = scores[people] + score
                 # print(people , javab , score)
-    return scores        
+    return scores
 
 if __name__ == '__main__':
     ready_up()
 
     add_participant(participant = 'salib', answers = {'esm': 'بردیا', 'famil': 'بابایی',
      'keshvar': 'باربادوس', 'rang': 'بنفش', 'ashia': 'بمب', 'ghaza': 'باقالیپلو'})
-    add_participant(participant = 'kianoush', answers = {'esm': 'بهرام', 'famil': 'بهرامی', 
+    add_participant(participant = 'kianoush', answers = {'esm': 'بهرام', 'famil': 'بهرامی',
     'keshvar': 'برزیل', 'rang': 'بلوطی', 'ashia': 'بیل', 'ghaza': 'به   پلو'})
-    add_participant(participant = 'sajjad', answers = {'esm': 'بابک', 'famil': 'بهشتی', 
+    add_participant(participant = 'sajjad', answers = {'esm': 'بابک', 'famil': 'بهشتی',
     'keshvar': 'باهاما', 'rang': 'بژ', 'ashia': '        ', 'ghaza': 'برنج خورشت'})
     add_participant(participant = 'farhad', answers = {'esm': 'بهرام', 'famil': 'براتی',
      'keshvar': 'بببببب', 'rang': 'بژ', 'ashia': 'بیل', 'ghaza': 'باقلوا'})
